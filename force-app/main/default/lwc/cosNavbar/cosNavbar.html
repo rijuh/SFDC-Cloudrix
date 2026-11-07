@@ -1,0 +1,47 @@
+<template>
+
+    <nav class="navbar">
+
+        <ul class="menu">
+
+            <template for:each={parentMenus} for:item="menu">
+
+                <li key={menu.label} class="menu-item">
+
+                    <a href={menu.url}>
+
+                        {menu.label}
+
+                    </a>
+
+                    <template if:true={menu.subMenus.length}>
+
+                        <ul class="submenu">
+
+                            <template for:each={menu.subMenus} for:item="sub">
+
+                                <li key={sub.label}>
+
+                                    <a href={sub.url}>
+
+                                        {sub.label}
+
+                                    </a>
+
+                                </li>
+
+                            </template>
+
+                        </ul>
+
+                    </template>
+
+                </li>
+
+            </template>
+
+        </ul>
+
+    </nav>
+
+</template>

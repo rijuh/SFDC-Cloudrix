@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <label>Role</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CEO</fullName>
+                <default>false</default>
+                <label>CEO</label>
+            </value>
+            <value>
+                <fullName>CTO</fullName>
+                <default>false</default>
+                <label>CTO</label>
+            </value>
+            <value>
+                <fullName>Managing Director</fullName>
+                <default>false</default>
+                <label>Managing Director</label>
+            </value>
+            <value>
+                <fullName>Sales Head</fullName>
+                <default>false</default>
+                <label>Sales Head</label>
+            </value>
+            <value>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+                <label>Sales Manager</label>
+            </value>
+            <value>
+                <fullName>Support Head</fullName>
+                <default>false</default>
+                <label>Support Head</label>
+            </value>
+            <value>
+                <fullName>Support Manager</fullName>
+                <default>false</default>
+                <label>Support Manager</label>
+            </value>
+            <value>
+                <fullName>Technical Head</fullName>
+                <default>false</default>
+                <label>Technical Head</label>
+            </value>
+            <value>
+                <fullName>Technical Manager</fullName>
+                <default>false</default>
+                <label>Technical Manager</label>
+            </value>
+            <value>
+                <fullName>Developer</fullName>
+                <default>false</default>
+                <label>Developer</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>HR</fullName>
+                <default>false</default>
+                <label>HR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

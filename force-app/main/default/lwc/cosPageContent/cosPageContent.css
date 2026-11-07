@@ -1,0 +1,46 @@
+.page-content{
+
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+h1{
+
+    font-size: 48px;
+
+    color: #0176d3;
+
+    margin-bottom: 20px;
+}
+
+p{
+
+    font-size: 20px;
+
+    color: #555;
+}
+
+.case-form {
+    max-width: 640px;
+    margin: 32px auto;
+    padding: 28px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #dddbda;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.submit-button {
+    margin-top: 20px;
+}
+
+.success-message {
+    max-width: 640px;
+    margin: 32px auto;
+    padding: 24px;
+    color: #194e31;
+    background: #eaf5ee;
+    border-radius: 8px;
+}

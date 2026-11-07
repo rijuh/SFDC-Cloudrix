@@ -1,0 +1,324 @@
+<apex:page title="New Hire Module" controller="NewHireModuleController" showHeader="true" sidebar="false">
+
+    <style>
+        .moduleContainer {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 24px;
+            font-family: Arial, sans-serif;
+        }
+
+        .moduleHeading {
+            font-size: 28px;
+            font-weight: 700;
+            color: #16325c;
+            margin-bottom: 10px;
+        }
+
+        .moduleDescription {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #5f6a7d;
+            margin-bottom: 24px;
+        }
+
+        .recordList,
+        .detailCard {
+            border: 1px solid #d8dde6;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .recordRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .recordRow:last-child {
+            border-bottom: none;
+        }
+
+        .recordName {
+            font-size: 15px;
+            font-weight: 600;
+            color: #181818;
+        }
+
+        .hireButton {
+            display: inline-block;
+            background: #298ddf !important;
+            color: white !important;
+            padding: 10px 24px !important;
+            border-radius: 10px !important;
+            min-width: 70px;
+            font-size: 18px !important;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .hireButton:hover {
+            background: #137acd !important;
+            text-decoration: none !important;
+        }
+
+        .terminateButton {
+            display: inline-block;
+            background: #d82e13 !important;
+            color: white !important;
+            padding: 10px 24px !important;
+            border-radius: 10px !important;
+            min-width: 70px;
+            font-size: 18px !important;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .terminateButton:hover {
+            background: #c4250c !important;
+            text-decoration: none !important;
+        }
+
+        .detailHeader {
+            padding: 18px 20px;
+            background: #f3f6f9;
+            border-bottom: 1px solid #d8dde6;
+            font-size: 18px;
+            font-weight: 700;
+            color: #16325c;
+        }
+
+        .detailBody {
+            padding: 20px;
+        }
+
+        .backLink {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #0176d3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .emptyMessage {
+            padding: 22px 20px;
+            color: #5f6a7d;
+            font-size: 14px;
+        }
+
+        .nh-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 18px;
+            margin: 22px 0 26px;
+            background: #17365d;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(23, 54, 93, 0.12);
+        }
+
+        .nh-navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .nh-brand-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #17365d;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .nh-navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nh-navbar-links a.nh-nav-link {
+            display: inline-block;
+            padding: 10px 16px;
+            border: 1px solid transparent;
+            border-radius: 7px;
+            color: #eaf2ff !important;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-decoration: none !important;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nh-navbar-links a.nh-nav-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+        }
+
+        .nh-navbar-links a.nh-nav-link.active {
+            background: #ffffff;
+            color: #17365d !important;
+            border-color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            .nh-navbar {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 14px;
+                padding: 14px;
+            }
+
+            .nh-navbar-links {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .nh-navbar-links a.nh-nav-link {
+                padding: 9px 12px;
+            }
+        }
+    </style>
+
+    <div class="moduleContainer">
+        <div class="moduleHeading">
+            <apex:outputText value="{!$Label.New_Hire_Module_Title}" />
+        </div>
+
+        <div class="moduleDescription">
+            <apex:outputText value="{!$Label.NHM_Description}" />
+        </div>
+
+        <!-- Navbar: directly after the description -->
+        <div class="nh-navbar">
+            <div class="nh-navbar-brand">
+                <span class="nh-brand-mark">C</span>
+                <span>Cloudrix</span>
+            </div>
+
+            <div class="nh-navbar-links">
+                <apex:outputLink value="{!URLFOR($Page.New_Hire_Home, null, [list='hiring'])}"
+                    styleClass="{!IF(isHiredList, 'nh-nav-link', 'nh-nav-link active')}">
+                    Hiring List
+                </apex:outputLink>
+
+                <apex:outputLink value="{!URLFOR($Page.New_Hire_Home, null, [list='hired'])}"
+                    styleClass="{!IF(isHiredList, 'nh-nav-link active', 'nh-nav-link')}">
+                    Hired List
+                </apex:outputLink>
+            </div>
+        </div>
+
+        <!-- EMPLOYEE LIST VIEW -->
+        <apex:outputPanel rendered="{!NOT(isDetailView)}">
+            <div class="recordList">
+                <apex:outputPanel rendered="{!hasRecords}">
+                    <apex:repeat value="{!workdayRecords}" var="hire">
+                        <div class="recordRow">
+                            <span class="recordName">
+                                <apex:outputText value="{!hire.Name}" />
+                            </span>
+
+                            <apex:outputLink value="{!URLFOR($Page.New_Hire_Home, null, [id=hire.Id])}"
+                                rendered="{!NOT(isHiredList)}"
+                                styleClass="hireButton">
+                                New-Hire
+                            </apex:outputLink>
+                            <apex:outputLink value="{!URLFOR($Page.New_Hire_Home, null, [id=hire.Id])}"
+                                rendered="{!isHiredList}"
+                                styleClass="terminateButton">
+                                Terminate
+                            </apex:outputLink>
+                        </div>
+                    </apex:repeat>
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!NOT(hasRecords)}">
+                    <div class="emptyMessage">
+                        No Workday records found.
+                    </div>
+                </apex:outputPanel>
+            </div>
+        </apex:outputPanel>
+
+        <!-- EMPLOYEE DETAILS VIEW -->
+        <apex:outputPanel rendered="{!isDetailView}">
+            <apex:outputLink value="{!URLFOR($Page.New_Hire_Home)}" styleClass="backLink">
+                &lt; Back to List
+            </apex:outputLink>
+
+            <apex:outputPanel rendered="{!selectedWorkday != null}">
+                <div class="detailCard">
+                    <div class="detailHeader">
+                        Employee Details
+                    </div>
+
+                    <div class="detailBody">
+                        <apex:pageBlock title="Personal Information">
+                            <apex:pageBlockSection columns="2">
+                                <apex:outputField value="{!selectedWorkday.Employee_Number__c}" />
+                                <apex:outputField value="{!selectedWorkday.Name}" />
+                                <apex:outputField value="{!selectedWorkday.Job_Title__c}" />
+                                <apex:outputField value="{!selectedWorkday.First_Name__c}" />
+                                <apex:outputField value="{!selectedWorkday.Middle_Name__c}" />
+                                <apex:outputField value="{!selectedWorkday.Last_Name__c}" />
+                                <apex:outputField value="{!selectedWorkday.Birthdate__c}" />
+                                <apex:outputField value="{!selectedWorkday.Phone__c}" />
+                            </apex:pageBlockSection>
+
+                            <apex:pageBlockSection title="Address" columns="2">
+                                <apex:outputField value="{!selectedWorkday.Street__c}" />
+                                <apex:outputField value="{!selectedWorkday.City__c}" />
+                                <apex:outputField value="{!selectedWorkday.State__c}" />
+                                <apex:outputField value="{!selectedWorkday.Postal_Code__c}" />
+                                <apex:outputField value="{!selectedWorkday.Country__c}" />
+                            </apex:pageBlockSection>
+                        </apex:pageBlock>
+
+                        <!-- CONTAINS HIRING INFO OF THE USERS -->
+                        <apex:form>
+                            <apex:pageBlock title="Hiring Information">
+                                <apex:pageMessages />
+
+                                <apex:pageBlockSection title="Choose Username" columns="1">
+                                    <apex:selectRadio value="{!selectedUsername}" layout="lineDirection">
+                                        <apex:selectOptions value="{!usernameOptions}" />
+                                    </apex:selectRadio>
+                                </apex:pageBlockSection>
+
+                                <!-- HIRE BUTTON -->
+                                <apex:pageBlockButtons location="bottom">
+                                    <apex:commandButton value="Hire" action="{!hire}" styleClass="hireButton" />
+                                </apex:pageBlockButtons>
+                            </apex:pageBlock>
+                        </apex:form>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+            <apex:outputPanel rendered="{!selectedWorkday == null}">
+                <div class="emptyMessage">
+                    The requested Workday record could not be found.
+                </div>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </div>
+
+</apex:page>

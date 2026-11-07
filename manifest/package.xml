@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>COSMenuController</members>
+        <members>COSMenuWrapper</members>
+        <members>COS_LoginController</members>
+        <members>COS_RegisterController</members>
+        <members>COS_RegistrationTriggerHandler</members>
+        <members>CosBannerController</members>
+        <members>HireUserController</members>
+        <members>NewHireQueueable</members>
+        <members>NewHireTriggerHandler</members>
+        <members>UserRegistrationController</members>
+        <members>UserRegistrationControllerTest</members>
+        <members>UserService</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>COS_Login</members>
+        <members>COS_Register</members>
+        <members>HireUserPage</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>COS_RegistrationTrigger</members>
+        <members>NewHireTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>New_Hire__c.Active__c</members>
+        <members>New_Hire__c.Age__c</members>
+        <members>New_Hire__c.Email__c</members>
+        <members>New_Hire__c.First_Name__c</members>
+        <members>New_Hire__c.Hiring_Date__c</members>
+        <members>New_Hire__c.Last_Name__c</members>
+        <members>New_Hire__c.Password__c</members>
+        <members>New_Hire__c.Profile__c</members>
+        <members>New_Hire__c.Re_Hire__c</members>
+        <members>New_Hire__c.Role__c</members>
+        <members>New_Hire__c.Status__c</members>
+        <members>New_Hire__c.Test_Field__c</members>
+        <members>New_Hire__c.Username__c</members>
+        <members>Product2.CurrencyIsoCode</members>
+        <members>Product2.Description</members>
+        <members>Product2.DisplayUrl</members>
+        <members>Product2.ExternalDataSourceId</members>
+        <members>Product2.ExternalId</members>
+        <members>Product2.Family</members>
+        <members>Product2.IsActive</members>
+        <members>Product2.Name</members>
+        <members>Product2.ProductCode</members>
+        <members>Product2.Product_Type__c</members>
+        <members>Product2.QuantityUnitOfMeasure</members>
+        <members>Product2.SellerId</members>
+        <members>Product2.SourceProductId</members>
+        <members>Product2.StockKeepingUnit</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>New_Hire__c</members>
+        <members>Product2</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>cosHeader</members>
+        <members>cosNavbar</members>
+        <members>cosPageContent</members>
+        <members>hireButton</members>
+        <members>userRegistrationForm</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>New_Hire__c.All</members>
+        <members>Product2.AllProducts</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <members>Analytics Cloud Integration User</members>
+        <members>Analytics Cloud Security User</members>
+        <members>Authenticated Website</members>
+        <members>Chatter External User</members>
+        <members>Chatter Free User</members>
+        <members>Chatter Moderator User</members>
+        <members>ContractManager</members>
+        <members>Cross Org Data Proxy User</members>
+        <members>Customer Community Login User</members>
+        <members>Customer Community Plus Login User</members>
+        <members>Customer Community Plus User</members>
+        <members>Customer Community User</members>
+        <members>Customer Portal Manager Custom</members>
+        <members>Customer Portal Manager Standard</members>
+        <members>External Apps Login User</members>
+        <members>External Identity User</members>
+        <members>Force%2Ecom - App Subscription User</members>
+        <members>Gold Partner User</members>
+        <members>High Volume Customer Portal User</members>
+        <members>HighVolumePortal</members>
+        <members>Identity User</members>
+        <members>MarketingProfile</members>
+        <members>Minimum Access - API Only Integrations</members>
+        <members>Minimum Access - Salesforce</members>
+        <members>Partner App Subscription User</members>
+        <members>Partner Community Login User</members>
+        <members>Partner Community User</members>
+        <members>PlatformPortal</members>
+        <members>Silver Partner User</members>
+        <members>SolutionManager</members>
+        <members>Standard</members>
+        <members>StandardAul</members>
+        <members>Work%2Ecom Only User</members>
+        <name>Profile</name>
+    </types>
+    <version>65.0</version>
+</Package>

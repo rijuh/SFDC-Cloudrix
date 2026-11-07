@@ -1,0 +1,2 @@
+<apex:page standardController="User_Registration__c" extensions="HireUserController" action="{!hireUser}">
+</apex:page>

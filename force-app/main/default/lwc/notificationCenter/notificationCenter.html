@@ -1,0 +1,61 @@
+<template>
+    <div class="notificationContainer">
+        <lightning-card>
+            <div class="header">
+                <div class="title">
+                    <lightning-icon icon-name="utility:notification" size="small">
+                    </lightning-icon>
+                    <span class="heading">Notifications</span>
+                </div>
+
+                <div class="actions">
+                    <lightning-button label="Refresh" icon-name="utility:refresh" onclick={refresh}>
+                    </lightning-button>
+
+                    <lightning-button class="slds-m-left_small" label="Mark All Read" onclick={markAllRead}>
+                    </lightning-button>
+                </div>
+            </div>
+
+            <template if:true={notifications}>
+                <template for:each={notifications} for:item="notification">
+                    <div key={notification.Id} class={notification.cardClass}>
+
+                        <div class="topRow">
+                            <span class="recordNumber">
+                                {notification.Name}
+                            </span>
+
+                            <span class="date">
+                                {notification.createdDate}
+                            </span>
+                        </div>
+                        <div class="headerText">
+                            {notification.Title__c}
+                        </div>
+                        <div class="bodyText">
+                            {notification.Message__c}
+                        </div>
+                        <div class="footer">
+                            <a href="javascript:void(0);" data-id={notification.Name} onclick={openRecord}>
+                                View Record
+                            </a>
+                            <span class={notification.statusClass}>
+                                {notification.statusText}
+                            </span>
+                        </div>
+                    </div>
+                </template>
+            </template>
+
+            <template if:false={notifications}>
+                <div class="emptyState">
+                    <lightning-icon icon-name="utility:notification_off" size="large">
+                    </lightning-icon>
+
+                    <p>No notifications available.</p>
+                </div>
+            </template>
+        </lightning-card>
+    </div>
+</template>

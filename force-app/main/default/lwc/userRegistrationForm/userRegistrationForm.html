@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="User Registration">
+
+        <div style="width:70%; max-width:900px; margin:0 auto; padding:20px;">
+
+            <lightning-input
+                label="First Name"
+                onchange={handleFirstName}>
+            </lightning-input>
+
+            <lightning-input
+                label="Last Name"
+                onchange={handleLastName}>
+            </lightning-input>
+
+            <lightning-combobox
+                label="Role"
+                value={selectedRole}
+                placeholder="Select Role"
+                options={roleOptions}
+                onchange={handleRoleChange}>
+            </lightning-combobox>
+
+            <br/>
+
+            <lightning-button
+                label="Register"
+                variant="brand"
+                onclick={registerUser}>
+            </lightning-button>
+
+        </div>
+
+    </lightning-card>
+</template>
