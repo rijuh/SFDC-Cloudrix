@@ -15,7 +15,7 @@ public with sharing class ContentDocumentLinkTriggerHandler {
         }
 
         Map<Id, Id> articleFieldMap = new Map<Id, Id>();
-        List<ContentDocumentLink> links = [SELECT LinkedEntityId, ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId in :articleIds];
+        List<ContentDocumentLink> links = [SELECT LinkedEntityId, ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId in :articleIds ORDER BY SystemModstamp DESC];
 
         for(ContentDocumentLink link: links){
             if(!articleFieldMap.containsKey(link.LinkedEntityId)){
