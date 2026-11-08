@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>ArticleAttachmentPortalController</members>
         <members>COSMenuController</members>
         <members>COSMenuWrapper</members>
         <members>COS_LoginController</members>
         <members>COS_RegisterController</members>
         <members>COS_RegistrationTriggerHandler</members>
+        <members>ContactTriggerHandler</members>
+        <members>ContentDocumentLinkTriggerHandler</members>
         <members>CosBannerController</members>
         <members>HireUserController</members>
+        <members>LeadAssignmentBatch</members>
+        <members>LeadTriggerHandler</members>
+        <members>NewHireModuleController</members>
         <members>NewHireQueueable</members>
         <members>NewHireTriggerHandler</members>
+        <members>NotificationServices</members>
+        <members>TaskTriggerHandler</members>
         <members>UserRegistrationController</members>
         <members>UserRegistrationControllerTest</members>
         <members>UserService</members>
+        <members>WorkdaySFDCIntegration</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>ArticleAttachmentPortal</members>
         <members>COS_Login</members>
         <members>COS_Register</members>
         <members>HireUserPage</members>
+        <members>New_Hire_Home</members>
         <name>ApexPage</name>
     </types>
     <types>
         <members>COS_RegistrationTrigger</members>
+        <members>ContactTrigger</members>
+        <members>ContentDocumentLinkTrigger</members>
+        <members>LeadTrigger</members>
         <members>NewHireTrigger</members>
+        <members>TaskTrigger</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -54,18 +69,32 @@
         <members>Product2.SellerId</members>
         <members>Product2.SourceProductId</members>
         <members>Product2.StockKeepingUnit</members>
+        <members>Workday__c.Birthdate__c</members>
+        <members>Workday__c.City__c</members>
+        <members>Workday__c.Country__c</members>
+        <members>Workday__c.First_Name__c</members>
+        <members>Workday__c.Job_Title__c</members>
+        <members>Workday__c.Last_Name__c</members>
+        <members>Workday__c.Middle_Name__c</members>
+        <members>Workday__c.Phone__c</members>
+        <members>Workday__c.Postal_Code__c</members>
+        <members>Workday__c.State__c</members>
+        <members>Workday__c.Street__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>New_Hire__c</members>
         <members>Product2</members>
+        <members>Workday__c</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>cosHeader</members>
         <members>cosNavbar</members>
         <members>cosPageContent</members>
+        <members>cos_ArticleViewer</members>
         <members>hireButton</members>
+        <members>notificationCenter</members>
         <members>userRegistrationForm</members>
         <name>LightningComponentBundle</name>
     </types>
@@ -73,6 +102,10 @@
         <members>New_Hire__c.All</members>
         <members>Product2.AllProducts</members>
         <name>ListView</name>
+    </types>
+    <types>
+        <members>Workday_Full_Access</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>Admin</members>

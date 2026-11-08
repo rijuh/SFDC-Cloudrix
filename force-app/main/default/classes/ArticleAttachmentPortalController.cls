@@ -7,20 +7,10 @@ public with sharing class ArticleAttachmentPortalController {
     public ArticleAttachmentPortalController(
         ApexPages.StandardController controller
     ) {
-
         Id articleId = controller.getId();
 
         // Find the HTML file linked to this Article
-        List<ContentDocumentLink> files = [
-            SELECT ContentDocumentId,
-                   ContentDocument.Title,
-                   ContentDocument.FileExtension
-            FROM ContentDocumentLink
-            WHERE LinkedEntityId = :articleId
-            AND ContentDocument.FileExtension IN ('html', 'htm')
-            ORDER BY SystemModstamp DESC
-            LIMIT 1
-        ];
+        List<Article__c> files = [SELECT Primary_Attachment__c FROM Article__c WHERE Id =:articleId];
 
         if (files.isEmpty()) {
             htmlContent = '<h2>No HTML document found.</h2>';
@@ -31,7 +21,7 @@ public with sharing class ArticleAttachmentPortalController {
         List<ContentVersion> versions = [
             SELECT VersionData, ContentSize
             FROM ContentVersion
-            WHERE ContentDocumentId = :files[0].ContentDocumentId
+            WHERE ContentDocumentId = :files[0].Primary_Attachment__c
             AND IsLatest = true
             LIMIT 1
         ];
